@@ -1,0 +1,121 @@
+{% extends 'post/base.html' %}
+
+{% block heading %}
+    <title>Home</title>
+    <style>
+        body{
+            background-color: rgb(220, 202, 180);
+
+        }
+
+
+        .nav1{
+            position: absolute;
+            top: 10px;
+            right: 180px;
+            background-color: rgb(60, 151, 236);
+            color: white;
+            border: none;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            cursor: pointer;
+            margin-left: 19px;
+
+        }
+
+        .nav1:hover {
+            opacity: 0.8;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15s);
+
+        }
+
+       .nav1:active {
+            opacity: 0.5;
+        }
+
+        .nav2 {
+            position: absolute;
+            top: 10px;
+            right: 90px;
+            background-color: rgb(60, 151, 236);
+            color: white;
+            border: none;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            cursor: pointer;
+            margin-right: 8px;
+
+        }
+
+        .nav2:hover {
+            opacity: 0.8;
+        }
+
+        .nav2:active {
+            opacity: 0.5;
+        }
+
+
+
+        .post_main{
+            position: relative;
+            top: 20px;
+            text-align: center;
+        }
+
+
+        .posts{
+            background-color: white;
+            width: 700px;
+            height: 550px;
+            margin: auto;
+            text-align: left;
+            margin-top: 80px;
+        }
+        .img{
+            width: 700px;
+            height: 300px;
+        }
+
+        .main{
+            padding: 20px;
+            padding-bottom: 0px;
+        }
+
+        p{
+            padding-top: 0px;
+            padding: 20px;
+        }
+
+        .name{
+            position: relative;
+            bottom: 280px;
+            left: 16px;
+            color: yellow;
+        }
+    </style>
+{% endblock heading %}
+
+{% block content %}
+    <h1 class="post_main">Posts</h1>
+    <nav>
+        <h4 class="nav1">Sign up</h4>
+        <h4 class="nav2">Log in</h4>
+
+    </nav>
+    {% for post in posts %}
+        <header>
+            <div class="posts">
+                <img class="img" src="https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80">
+                <h2 class="name">{{ post.full_name }}</h2>
+                <h1 class="main">{{ post.title }}</h1>
+                <p>{{ post.message }}</p>
+                <span>{{ post.data }}</span>
+            </div>
+        </header>
+    {% endfor %}
+{% endblock content %}
